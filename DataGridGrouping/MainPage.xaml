@@ -10,6 +10,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+      <Grid.Resources>
+
+        <CollectionViewSource IsSourceGrouped="True"
+                              x:Name="Source"
+                              Source="{x:Bind viewModel.Users, Mode=TwoWay}"
+                              ItemsPath="Todos"/>
+
+      </Grid.Resources>
         <Button Content="Add" Width="100" Height="50" Margin="450,225,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="{x:Bind viewModel.AddUser}"/>
         <controls:DataGrid Width="800" Height="400" Margin="450,280,450,0" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{x:Bind viewModel.CollectionView.View}" />
 
